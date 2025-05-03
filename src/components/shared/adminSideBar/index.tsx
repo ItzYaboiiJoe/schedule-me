@@ -20,31 +20,31 @@ const AdminSideNavbar = () => {
         {/* Navigation NavLinks */}
         <ul className="w-full space-y-6">
           <li className="w-full shadow-lg">
-            <Link href={"/admin-overview"} className="buttonStyle">
+            <Link href={"/admin/overview"} className="buttonStyle">
               <Binoculars size={18} className="iconStyle mr-3" />
               <span className="mainStyle">Overview</span>
             </Link>
           </li>
           <li className="w-full shadow-lg">
-            <Link href={"/admin-calendar"} className="buttonStyle">
+            <Link href={"/admin/calendar"} className="buttonStyle">
               <CalendarDays size={18} className="iconStyle mr-3" />
               <span className="mainStyle">Calendar</span>
             </Link>
           </li>
           <li className="w-full shadow-lg">
-            <Link href={"/admin-services"} className="buttonStyle">
+            <Link href={"/admin/services"} className="buttonStyle">
               <Database size={18} className="iconStyle mr-3" />
               <span className="mainStyle">Services</span>
             </Link>
           </li>
           <li className="w-full shadow-lg">
-            <Link href={"/admin-reports"} className="buttonStyle">
+            <Link href={"/admin/reports"} className="buttonStyle">
               <Clipboard size={18} className="iconStyle mr-3" />
               <span className="mainStyle">Reports</span>
             </Link>
           </li>
           <li className="w-full shadow-lg">
-            <Link href={"/admin-settings"} className="buttonStyle">
+            <Link href={"/admin/settings"} className="buttonStyle">
               <Settings size={18} className="iconStyle mr-3" />
               <span className="mainStyle">Settings</span>
             </Link>
