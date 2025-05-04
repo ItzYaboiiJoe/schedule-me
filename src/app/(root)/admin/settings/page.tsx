@@ -1,5 +1,7 @@
+import BusinessForm from "@/components/shared/businessForm";
+
 const AdminSettings = () => {
-  return <>Admin Settings Page</>;
+  return <BusinessForm />;
 };
 
 export default AdminSettings;
