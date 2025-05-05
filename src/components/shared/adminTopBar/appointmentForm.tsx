@@ -19,13 +19,21 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   phone: z.string(),
   service: z.string({ required_error: "Please select a service" }),
-  date: z.string(),
+  date: z.date({ required_error: "Please select a date for the service" }),
   time: z.string({ required_error: "Please select a time for the service" }),
 });
 
@@ -153,16 +161,36 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel className="block text-iconColor text-md">
+                    <FormLabel className="block text-iconColor text-md mb-1">
                       Date
                     </FormLabel>
-                    <FormControl>
-                      <Input
-                        className="border border-gray-300 mt-1"
-                        type="text"
-                        {...field}
-                      />
-                    </FormControl>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-full pl-3 text-left font-normal",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
                     <FormMessage />
                   </FormItem>
                 );
