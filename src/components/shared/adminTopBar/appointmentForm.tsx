@@ -4,6 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Form,
   FormControl,
   FormField,
@@ -17,9 +24,9 @@ const formSchema = z.object({
   name: z.string(),
   email: z.string().email(),
   phone: z.string(),
-  service: z.string(),
+  service: z.string({ required_error: "Please select a service" }),
   date: z.string(),
-  time: z.string(),
+  time: z.string({ required_error: "Please select a time for the service" }),
 });
 
 const AppointmentForm = () => {
@@ -42,9 +49,15 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel className="block text-iconColor text-md">
+                      Name
+                    </FormLabel>
                     <FormControl>
-                      <Input type="text" {...field} />
+                      <Input
+                        className="border border-gray-300 mt-1"
+                        type="text"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -59,9 +72,15 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="block text-iconColor text-md">
+                      Email
+                    </FormLabel>
                     <FormControl>
-                      <Input type="email" {...field} />
+                      <Input
+                        className="border border-gray-300 mt-1"
+                        type="email"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -78,9 +97,15 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Phone</FormLabel>
+                    <FormLabel className="block text-iconColor text-md">
+                      Phone
+                    </FormLabel>
                     <FormControl>
-                      <Input type="number" {...field} />
+                      <Input
+                        className="border border-gray-300 mt-1"
+                        type="number"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -95,10 +120,24 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Service</FormLabel>
-                    <FormControl>
-                      <Input type="text" {...field} />
-                    </FormControl>
+                    <FormLabel className="block text-iconColor text-md mb-1">
+                      Service
+                    </FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a Service" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="service1">Service 1</SelectItem>
+                        <SelectItem value="service2">Service 2</SelectItem>
+                        <SelectItem value="service3">Service 3</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 );
@@ -114,9 +153,15 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Date</FormLabel>
+                    <FormLabel className="block text-iconColor text-md">
+                      Date
+                    </FormLabel>
                     <FormControl>
-                      <Input type="text" {...field} />
+                      <Input
+                        className="border border-gray-300 mt-1"
+                        type="text"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -131,10 +176,24 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel>Time</FormLabel>
-                    <FormControl>
-                      <Input type="text" {...field} />
-                    </FormControl>
+                    <FormLabel className="block text-iconColor text-md">
+                      Time
+                    </FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a Time" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="time1">Time 1</SelectItem>
+                        <SelectItem value="time2">Time 2</SelectItem>
+                        <SelectItem value="time3">Time 3</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 );
