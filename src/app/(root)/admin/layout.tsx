@@ -29,7 +29,8 @@ export default function RootLayout({
         <AdminSideNavbar />
         <div className="flex-1 flex flex-col">
           <AdminTitleBar pageTitle={pageTitle} />
-          <div className="p-6">
+          {/* p-6 in that class name */}
+          <div className="">
             <h1 className="text-gray-700 text-xl font-bold">{children}</h1>
           </div>
         </div>

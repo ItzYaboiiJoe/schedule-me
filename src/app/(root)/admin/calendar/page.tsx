@@ -1,5 +1,7 @@
+import MyCalendar from "@/components/fullCalendar";
+
 const AdminCalendar = () => {
-  return <>Admin Calendar Page</>;
+  return <MyCalendar />;
 };
 
 export default AdminCalendar;
