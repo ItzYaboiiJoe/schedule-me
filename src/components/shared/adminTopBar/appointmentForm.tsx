@@ -176,7 +176,7 @@ const AppointmentForm = () => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel className="block text-iconColor text-md">
+                    <FormLabel className="block text-iconColor text-md mb-1">
                       Time
                     </FormLabel>
                     <Select
