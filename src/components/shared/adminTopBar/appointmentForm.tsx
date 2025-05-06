@@ -38,7 +38,7 @@ const formSchema = z.object({
   time: z.string({ required_error: "Please select a time for the service" }),
 });
 
-const AppointmentForm = () => {
+const AppointmentForm = ({ closeDialog }: { closeDialog: () => void }) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -243,6 +243,7 @@ const AppointmentForm = () => {
           <Button
             type="button"
             className="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-700 shadow-xl"
+            onClick={closeDialog}
           >
             Cancel
           </Button>
