@@ -27,6 +27,7 @@ import {
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const formSchema = z.object({
   name: z.string(),
@@ -38,6 +39,8 @@ const formSchema = z.object({
 });
 
 const AppointmentForm = () => {
+  const [popoverOpen, setPopoverOpen] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -164,7 +167,11 @@ const AppointmentForm = () => {
                     <FormLabel className="block text-iconColor text-md mb-1">
                       Date
                     </FormLabel>
-                    <Popover>
+                    <Popover
+                      modal={true}
+                      open={popoverOpen}
+                      onOpenChange={setPopoverOpen}
+                    >
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -186,7 +193,10 @@ const AppointmentForm = () => {
                         <Calendar
                           mode="single"
                           selected={field.value}
-                          onSelect={field.onChange}
+                          onSelect={(date) => {
+                            field.onChange(date);
+                            setPopoverOpen(false);
+                          }}
                           initialFocus
                         />
                       </PopoverContent>
