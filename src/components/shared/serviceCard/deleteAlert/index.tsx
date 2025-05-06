@@ -28,8 +28,10 @@ const DeleteConfirmation = () => {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className="bg-primary hover:bg-[#1e6f65]">
+          <AlertDialogCancel className="bg-gray-500 text-white hover:bg-gray-700 hover:text-white shadow-xl">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction className="bg-primary hover:bg-[#1e6f65] shadow-xl">
             Continue
           </AlertDialogAction>
         </AlertDialogFooter>
