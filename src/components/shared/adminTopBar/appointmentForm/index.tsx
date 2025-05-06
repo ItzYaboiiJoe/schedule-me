@@ -139,7 +139,7 @@ const AppointmentForm = ({ closeDialog }: { closeDialog: () => void }) => {
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="border border-gray-300">
                           <SelectValue placeholder="Select a Service" />
                         </SelectTrigger>
                       </FormControl>
@@ -172,7 +172,10 @@ const AppointmentForm = ({ closeDialog }: { closeDialog: () => void }) => {
                       open={popoverOpen}
                       onOpenChange={setPopoverOpen}
                     >
-                      <PopoverTrigger asChild>
+                      <PopoverTrigger
+                        className="border border-gray-300"
+                        asChild
+                      >
                         <FormControl>
                           <Button
                             variant={"outline"}
@@ -222,7 +225,7 @@ const AppointmentForm = ({ closeDialog }: { closeDialog: () => void }) => {
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="border border-gray-300">
                           <SelectValue placeholder="Select a Time" />
                         </SelectTrigger>
                       </FormControl>

@@ -12,6 +12,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -89,16 +96,25 @@ const EditServiceCard = ({ closeDialog }: { closeDialog: () => void }) => {
               render={({ field }) => {
                 return (
                   <FormItem>
-                    <FormLabel className="block text-iconColor text-md">
+                    <FormLabel className="block text-iconColor text-md mb-1">
                       Duration
                     </FormLabel>
-                    <FormControl>
-                      <Input
-                        className="border border-gray-300 mt-1"
-                        type="text"
-                        {...field}
-                      />
-                    </FormControl>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className="border border-gray-300">
+                          <SelectValue placeholder="Select Duration" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="15">15 Minutes</SelectItem>
+                        <SelectItem value="30">30 Minutes</SelectItem>
+                        <SelectItem value="45">45 Minutes</SelectItem>
+                        <SelectItem value="60">60 Minutes</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 );
