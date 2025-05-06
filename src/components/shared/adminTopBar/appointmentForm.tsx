@@ -242,17 +242,12 @@ const AppointmentForm = ({ closeDialog }: { closeDialog: () => void }) => {
         <div className="flex justify-end">
           <Button
             type="button"
-            className="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-700 shadow-xl"
+            className="bg-gray-500 text-white mr-2 hover:bg-gray-700 shadow-xl"
             onClick={closeDialog}
           >
             Cancel
           </Button>
-          <Button
-            type="submit"
-            className="bg-primary text-white px-4 py-2 rounded hover:bg-[#1e6f65] shadow-xl"
-          >
-            Submit
-          </Button>
+          <Button type="submit">Submit</Button>
         </div>
       </form>
     </Form>

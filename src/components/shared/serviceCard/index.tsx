@@ -6,7 +6,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import DeleteConfirmation from "./deleteAlert";
 
 const ServiceCard = () => {
   return (
@@ -14,13 +14,9 @@ const ServiceCard = () => {
       <CardHeader>
         <CardTitle className="mb-2 text-xl font-bold tracking-tight text-iconColor">
           Test
-          <Button
-            className="float-right text-iconColor"
-            variant="cardEdit"
-            size="icon"
-          >
-            <X />
-          </Button>
+          <div className="float-right">
+            <DeleteConfirmation />
+          </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
