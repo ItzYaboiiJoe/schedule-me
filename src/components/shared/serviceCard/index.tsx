@@ -1,3 +1,12 @@
+"use client";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Card,
   CardContent,
@@ -7,8 +16,13 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import DeleteConfirmation from "./deleteAlert";
+import EditServiceCard from "./editCardForm";
+import { useState } from "react";
 
 const ServiceCard = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const closeDialog = () => setIsDialogOpen(false);
   return (
     <Card className="max-w-sm bg-hoverShade rounded-lg shadow-xl hover:shadow-2xl">
       <CardHeader>
@@ -38,9 +52,24 @@ const ServiceCard = () => {
         </div>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button size={"sm"} variant={"cardEdit"} className="text-base">
-          Edit
-        </Button>
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogTrigger asChild>
+            <Button size={"sm"} variant={"cardEdit"} className="text-base">
+              Edit
+            </Button>
+          </DialogTrigger>
+          <DialogContent
+            className="bg-white p-6 rounded shadow-lg"
+            aria-describedby={undefined}
+          >
+            <DialogHeader>
+              <DialogTitle className="text-xl mb-4 text-iconColor">
+                Edit Appointment
+              </DialogTitle>
+            </DialogHeader>
+            <EditServiceCard closeDialog={closeDialog} />
+          </DialogContent>
+        </Dialog>
       </CardFooter>
     </Card>
   );
