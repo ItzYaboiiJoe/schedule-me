@@ -22,6 +22,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         appointment:
           "flex items-center bg-[#E9C46A] text-black px-4 py-2 rounded-lg hover:bg-[#F4A261] shadow-lg hover:shadow-2xl",
+        cardEdit:
+          "bg-transparent text-black rounded-lg hover:underline cursor-pointer",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
