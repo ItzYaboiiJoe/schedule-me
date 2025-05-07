@@ -49,7 +49,7 @@ export default function BusinessForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col space-y-2 ml-5"
       >
-        <h2 className="text-primary text-2xl my-2 ml-6">
+        <h2 className="text-primary text-2xl my-2 ml-8">
           Business Information
         </h2>
 
